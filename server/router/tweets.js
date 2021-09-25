@@ -45,7 +45,7 @@ router.get('/:id', (req,res,next) => {
 router.post('/', (req,res,next) => {
     const {text,name,username} = req.body;
     const tweet = {
-        id: Date().now().toString(),
+        id: Date.now().toString(),
         text,
         createAt: new Date(),
         name,
@@ -69,6 +69,7 @@ router.put('/:id', (req,res,next) => {
 // DELETE /tweets/:id
 router.delete('/:id', (req,res,next) => {
     const id = req.params.id;
+    console.log(id);
     tweets = tweets.filter(item => item.id !== id);
     res.sendStatus(204)
 })
